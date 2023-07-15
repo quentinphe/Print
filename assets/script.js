@@ -14,10 +14,12 @@ const slides = [
 	{
 		"image":"slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}
+	},
+
 ]
 
-const dots = document.querySelectorAll(".dot");
+let dots = document.querySelectorAll(".dot");
+const dotsParents = document.querySelector(".dots");
 const imagecontainer = document.querySelector(".image_container");
 
 const leftArrow = document.querySelector('.arrow_left');
@@ -46,6 +48,21 @@ function handleChange(count) {
 
   dots[count].classList.add("dot_selected");
 }
+
+function createDots (){
+	dotsParents.innerHTML=""
+	slides.forEach((slides)=>{
+		const dot = document.createElement("div")
+		dot.classList = "dot"
+		dotsParents.appendChild(dot)
+	})
+	dots = document.querySelectorAll(".dot");
+	dots[0].classList.add("dot_selected")
+}
+createDots()
+
+
+
 
 
 
